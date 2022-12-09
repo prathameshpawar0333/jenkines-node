@@ -1,5 +1,11 @@
+let http = require('http');
 
-var java = require('java');
-var javaLangSystem = java.import('java.lang.System');
-  
-javaLangSystem.out.printlnSync('hello sid sir! 2 ');
+let handleRequest = (request, response) => {
+    response.writeHead(200, {
+        'Content-Type': 'text/plain'
+    });
+    response.write('Hi There!');
+    response.end();
+};
+
+http.createServer(handleRequest).listen(8000);
